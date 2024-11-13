@@ -6,8 +6,8 @@ import { Montserrat } from "next/font/google";
 import SearchList from "./components/SearchList";
 
 const montserrat = Montserrat({
-  subsets: ["latin"], // Adjust this based on your language requirements
-  weight: ["400", "700"], // You can specify multiple weights if needed
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 // Home Page

@@ -4,7 +4,7 @@ import LineGraph from './LineGraph';
 
 const InfoCard = () => {
     return (
-        <div className="pt-10 pb-5">
+        <div className="pt-10 pb-5 w-3/4">
           <h1 className="text-6xl font-bold">Professor Name</h1>
           <div className="flex">
             <div className="flex flex-col w-1/2">

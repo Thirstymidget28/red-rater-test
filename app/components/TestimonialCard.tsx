@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const TestimonialCard = () => {
     return (
-        <div>
+        <div className="mb-10">
             <div className="testimonial-content w-2/3 mx-auto bg-red-600">
             <div className="bg-black text-white px-10 pt-5">
               <div className="flex justify-between">
