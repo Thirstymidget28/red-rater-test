@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   try {
     // Retrieve user from the database
     const connection = await getConnection();
-    const [rows, fields]: [QueryResult, FieldPacket[]] = await connection.execute('SELECT * FROM users WHERE email = ?', [email]);
+    const [rows]: [QueryResult, FieldPacket[]] = await connection.execute('SELECT * FROM users WHERE email = ?', [email]);
 
     // Now, extract the rows to match the expected type
     const userRows: { id: number; email: string; password_hash: string; fname: string; lname: string; }[] = rows as { id: number; email: string; password_hash: string; fname: string; lname: string; }[];
