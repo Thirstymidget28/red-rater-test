@@ -51,9 +51,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const headers = new Headers();
   if (typeof window === 'undefined') {
     const protocol = process.env.PROTOCOL || 'https'; // Default to 'https' for Vercel
-    const host = process.env.VERCEL_URL 
-      ? `${protocol}://${process.env.VERCEL_URL}`
-      : `http://localhost:3000`;
+    const host = process.env.VERCEL_URL || 'localhost:3000';
   
     headers.set('host', host);
     headers.set('x-forwarded-proto', protocol);
