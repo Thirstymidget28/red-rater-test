@@ -12,6 +12,11 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  ssl: {
+    cert: process.env.DB_CLIENT_CERT,
+    key: process.env.DB_CLIENT_KEY,
+    ca: process.env.DB_SERVER_CA
+  },
   waitForConnections: true,   // Wait for available connection if the pool is full
   connectionLimit: 10,        // Max number of simultaneous connections
   queueLimit: 0               // No limit on the number of queued connection requests
