@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { verifyJWT } from '../../../lib/jwt'; // Utility function to verify and decode the token
 import { cookies } from 'next/headers'; // Next API for retrieving cookies from client
 
-export async function GET(request: Request) {
+export async function GET() {
   const token = (await cookies()).get('auth_token')?.value;
 
   if (!token) { return NextResponse.json({ message: 'No token found' }, { status: 401 }); }
