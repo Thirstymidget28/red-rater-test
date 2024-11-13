@@ -2,10 +2,6 @@
 
 import mysql from 'mysql2/promise';
 
-interface DBConnection {
-  execute: <T>(query: string, values?: any[]) => Promise<[T, mysql.FieldPacket[]]>;
-}
-
 // Create a connection pool
 const pool = mysql.createPool({
   host: process.env.DB_HOST,

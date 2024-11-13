@@ -4,7 +4,6 @@ import Image from "next/image";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault(); // Prevent form submission
@@ -41,9 +40,9 @@ const Login = () => {
       
       // Reload the page
       window.location.href = "/";
-    } catch (error) {
+    } catch {
       // Handle errors (display error message)
-      setError("Invalid email or password.");
+      alert("Invalid email or password.");
     }
   };
 
@@ -83,7 +82,6 @@ const Login = () => {
                   required
                 />
               </label>
-              {error && <p className="text-red-600">{error}</p>}
               <button
                 type="submit"
                 className="btn bg-red-600 w-full hover:text-white hover:bg-black"
@@ -93,7 +91,7 @@ const Login = () => {
             </div>
           </form>
           <p className="self-center">
-            Don't have an account?{" "}
+            {`Don't have an account? `}
             <button
               className="text-red-600 underline"
               onClick={() => {

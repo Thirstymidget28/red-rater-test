@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-const SearchList = ({ query }: { query: string }) => {
+const SearchList = () => {
   return <div>SearchList hello</div>;
 };
 

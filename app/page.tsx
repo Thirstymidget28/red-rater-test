@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import Navbar from "./components/Navbar";
+
 import SearchBar from "./components/SearchBar";
 import { Montserrat } from "next/font/google";
 import SearchList from "./components/SearchList";
@@ -45,14 +44,14 @@ const Home = ({
         </p>
         <div className="pt-10 w-auto sm:w-1/2 lg:w-2/5 2xl:w-1/4">
           <SearchBar />
-          <SearchList query={query} />
+          <SearchList />
         </div>
         <label
           htmlFor="ai-drawer"
           className={`${montserrat.className} btn shadow-none border-none bg-transparent hover:bg-transparent text-xs font-bold text-center pb-5 sm:text-sm lg:text-md 2xl:text-lg px-10
             `}
         >
-          Can't find the right fit? Click here to try our AI tool.
+          {`Can't find the right fit? Click here to try our AI tool.`}
         </label>
       </div>
     </main>

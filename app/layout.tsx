@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import AITool from "./components/AITool";
 import Botpress from "./components/Botpress";
 
 const geistSans = localFont({
