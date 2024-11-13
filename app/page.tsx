@@ -17,8 +17,6 @@ const Home = ({
     query?: string;
   };
 }) => {
-  const query = searchParams?.query || "";
-  // console.log("query", query);
   return (
     <main className="h-screen pt-20">
       <div className="bg-hero bg-cover bg-center h-full w p-2 flex flex-col content-center items-center">

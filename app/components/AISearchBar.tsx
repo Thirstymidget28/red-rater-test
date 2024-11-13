@@ -2,8 +2,6 @@
 import React from "react";
 import Image from "next/image";
 
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
-
 const SearchBar = () => {
   return (
     <form className="h-fit w-full mr-10">
@@ -15,7 +13,7 @@ const SearchBar = () => {
         />
         <Image
           src="/MagnifyingGlass.svg"
-          alt="magnify glass"
+          alt="Magnifying glass"
           className="h-1/2 opacity-70"
         />
       </label>
