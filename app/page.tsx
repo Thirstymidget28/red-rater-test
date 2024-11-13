@@ -10,13 +10,7 @@ const montserrat = Montserrat({
 });
 
 // Home Page
-const Home = ({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-  };
-}) => {
+const Home = () => {
   return (
     <main className="h-screen pt-20">
       <div className="bg-hero bg-cover bg-center h-full w p-2 flex flex-col content-center items-center">
