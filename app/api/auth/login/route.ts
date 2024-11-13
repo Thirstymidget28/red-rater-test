@@ -1,4 +1,3 @@
-// /app/api/auth/login/route.ts
 import { NextResponse } from 'next/server'; // Middleware api for managing HTTP responses.
 import { verify } from 'argon2'; // Password comparison function
 import { signJWT } from '../../../lib/jwt'; // Import the signJWT function

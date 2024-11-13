@@ -1,5 +1,4 @@
 // Utility script for establishing connection pool with database
-
 import mysql from 'mysql2/promise';
 
 // Create a connection pool

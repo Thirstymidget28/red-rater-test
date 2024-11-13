@@ -49,8 +49,13 @@ async function fetchInitialUser(headers: Headers) {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const headers = new Headers();
-  if (typeof window === 'undefined') { // Check if application is running locally
-    headers.set('host', process.env.HOST || 'localhost:3000');
+  if (typeof window === 'undefined') {
+    // Check if running on Vercel or another cloud environment
+    const host = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : `http://localhost:3000`;
+  
+    headers.set('host', host);
     headers.set('x-forwarded-proto', process.env.PROTOCOL || 'http');
   }
 
