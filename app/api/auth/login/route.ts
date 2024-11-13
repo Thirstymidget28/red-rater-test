@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'; // Middleware api for managing HTTP 
 import { verify } from 'argon2'; // Password comparison function
 import { signJWT } from '../../../lib/jwt'; // Import the signJWT function
 import { getConnection } from '../../../lib/db_util'; // Your database utility
+import { QueryResult, FieldPacket } from 'mysql2/promise'; // Import QueryResult and FieldPacket
 
 export async function POST(request: Request) {
   const { email, password } = await request.json();
@@ -10,13 +11,16 @@ export async function POST(request: Request) {
   try {
     // Retrieve user from the database
     const connection = await getConnection();
-    const [rows]: any[] = await connection.execute('SELECT * FROM users WHERE email = ?', [email]);
+    const [rows, fields]: [QueryResult, FieldPacket[]] = await connection.execute('SELECT * FROM users WHERE email = ?', [email]);
 
-    if (rows.length === 0) { // If the table is not empty
+    // Now, extract the rows to match the expected type
+    const userRows: { id: number; email: string; password_hash: string; fname: string; lname: string; }[] = rows as { id: number; email: string; password_hash: string; fname: string; lname: string; }[];
+
+    if (userRows.length === 0) { // If the table is not empty
       return NextResponse.json({ message: 'User not found' }, { status: 404 });
     }
 
-    const user = rows[0];
+    const user = userRows[0];
 
     // Verify the password
     const isPasswordValid = await verify(user.password_hash, password);
