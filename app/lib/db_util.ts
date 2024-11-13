@@ -19,4 +19,14 @@ const pool = mysql.createPool({
 });
 
 // Export the pool (so other files can use it)
-export const getConnection = async () => await pool.getConnection();
+export const getConnection = async () => {
+  try {
+    console.log('Attempting to get a database connection...');
+    const connection = await pool.getConnection();
+    console.log('Database connection established successfully.');
+    return connection;
+  } catch (error) {
+    console.error('Error establishing database connection:', error);
+    throw error;
+  }
+};
